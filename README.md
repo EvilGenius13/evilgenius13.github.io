@@ -1,10 +1,7 @@
 <h2 align="left"># 💫 About Me:<br>🔭 I’m currently working on a full-stack personal project.<br>👯 I’m looking to collaborate on Pterodactyl Eggs for game servers <br>https://github.com/parkervcp/eggs<br>🤝 I’m looking for help learning about Kubernetes.<br>🌱 I’m currently learning Python, JavaScript, React, Databases, API's at school.<br>💬 Ask me about gaming! I love playing on PC and Nintendo Switch<br>⚡ Fun fact: I was a financial advisor for 10 years before pivoting to software engineering.</h2>
 
-###
-
 <img align="right" height="150" src="https://avatars.githubusercontent.com/u/93214149?s=400&u=f51305aaf041432d4b541a6c62610ee7d2054b0b&v=4"  />
 
-###
 
 <div align="left">
   <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" height="30" alt="javascript logo"  />
@@ -42,7 +39,6 @@
   <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/ruby/ruby-original.svg" height="30" alt="ruby logo"  />
 </div>
 
-###
 
 <div align="left">
   <a href="https://www.twitch.tv/evilgenius88" target="_blank">
@@ -56,4 +52,3 @@
   </a>
 </div>
 
-###
