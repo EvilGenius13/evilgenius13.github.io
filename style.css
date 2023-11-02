@@ -1,0 +1,547 @@
+@import url("https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500&family=Petemoss&display=swap");
+
+* {
+  box-sizing: border-box;
+  font-family: "Cinzel", serif;
+}
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-image: url("images/background.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center center;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+p {
+  margin: 0;
+}
+
+h3 {
+  font-size: 28px;
+  font-weight: bolder;
+}
+
+h4 {
+  font-size: 20px;
+  font-style: italic;
+}
+
+#wrapper,
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+}
+
+.book {
+  max-width: 90vw;
+  --book-height: 90vh;
+  --book-ratio: 1.4;
+  transition: transform 0.5s;
+}
+
+.book > div {
+  height: var(--book-height);
+  width: calc(var(--book-height) / var(--book-ratio));
+  overflow: auto;
+  background-color: #0a0a0a;
+  transform: scale(0.9);
+  border-radius: 6px;
+  transform-origin: left;
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.3), 0 20px 25px rgba(0, 0, 0, 0.4),
+    0 30px 35px rgba(0, 0, 0, 0.5);
+}
+
+.book-cover {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  z-index: 9;
+  text-align: center;
+  background: linear-gradient(135deg, black 25%, transparent 25%) -50px 0,
+    linear-gradient(225deg, black 25%, transparent 25%) -50px 0,
+    linear-gradient(315deg, black 25%, transparent 25%),
+    linear-gradient(45deg, black 25%, transparent 25%),
+    linear-gradient(
+      to right,
+      rgba(0, 0, 0, 0.2),
+      rgba(0, 0, 0, 0.1),
+      transparent,
+      rgba(0, 0, 0, 0.1),
+      rgba(0, 0, 0, 0.2)
+    );
+  background-size: 2em 2em, 100%;
+  background-color: #232323;
+  color: white;
+  transition: transform 2s;
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.6),
+    -5px -5px 15px rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+}
+
+.book-cover::before {
+  content: "";
+  position: absolute;
+  width: 20px;
+  right: 20px;
+  top: 0;
+  bottom: 0;
+  background-color: #2f2061;
+}
+
+.book-cover-inner {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform: rotateY(180deg);
+  backface-visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.3s 1s;
+  color: #dbd75d;
+  font-size: 18px;
+}
+
+.book:hover .book-cover-inner {
+  opacity: 1;
+  transform: scale(1.05) translateY(-10px);
+}
+
+/* Style the scrollbar track (background) */
+.book-content::-webkit-scrollbar-track {
+  border-radius: 6px;
+  background-color: #040209;
+}
+
+/* Style the scrollbar thumb (handle) */
+.book-content::-webkit-scrollbar-thumb {
+  border-radius: 6px;
+  background-color: #2f2061;
+}
+
+/* Optionally, style the scrollbar itself*/
+.book-content::-webkit-scrollbar {
+  width: 12px;
+}
+
+h1 {
+  font-family: "MedievalSharp", cursive;
+  font-size: 60px;
+  font-weight: 300;
+  color: #3a658f;
+}
+
+h2 {
+  font-size: 40px;
+  font-family: "MedievalSharp", cursive;
+  color: #3a658f;
+}
+
+.separator {
+  --separator-width: 200px;
+  height: 2px;
+  width: var(--separator-width);
+  background-color: #feffe7;
+  margin: 50px auto 60px auto;
+  position: relative;
+  overflow: visible; /* To ensure pseudo-elements are visible */
+}
+
+.separator::after,
+.separator::before {
+  content: "";
+  position: absolute;
+  height: 30px;
+  width: 2px;
+  background-color: #feffe7;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.separator::before {
+  left: -10px; /* Positioning the ornate design slightly outside of the main bar */
+  background: linear-gradient(to bottom, #feffe7, transparent);
+}
+
+.separator::after {
+  right: -10px; /* Positioning the ornate design slightly outside of the main bar */
+  background: linear-gradient(to bottom, transparent, #feffe7);
+}
+
+.book-content {
+  transform: scale(0.9) translateY(30px);
+  background: url("images/script.jpg"),
+    radial-gradient(circle, #f5deb3, #e8cfa9);
+  background-size: cover;
+  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s 1s;
+  overflow-y: scroll;
+}
+
+.book-content h3,
+.book-content p {
+  opacity: 0;
+  transition: all 0.3s 0.3s;
+}
+
+h3,
+h4,
+a {
+  padding: 30px;
+}
+
+p {
+  padding: 0px 30px 10px 30px;
+  text-align: justify;
+  font-size: 18px;
+}
+
+.book-cover > div {
+  transition: opacity 0s 0.6s;
+}
+
+.book:hover > .book-cover {
+  transform: rotateY(180deg) scale(0.9);
+}
+
+.book:hover > .book-cover > div {
+  opacity: 0;
+}
+
+.book:hover > .book-content {
+  transform: scale(0.9) translateY(0px);
+}
+
+.book:hover > .book-content h3,
+.book:hover > .book-content p {
+  opacity: 1;
+}
+
+a {
+  transition: all 0.3s ease-in-out; /* smooth transition */
+  text-decoration: none;
+}
+
+a:hover {
+  text-shadow: 0 0 10px #00ff00, 0 0 20px #00ff00, 0 0 30px #00ff00;
+}
+
+.project {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+
+.project img {
+  flex: 1;
+  max-width: 40px;
+  min-width: 40px;
+  transition: box-shadow 0.3s ease-in-out, background-color 0.3s ease-in-out;
+  border-radius: 10px;
+}
+
+.project1-image:hover {
+  box-shadow: 0 0 10px rgba(88, 103, 188, 255), 0 0 20px rgba(88, 103, 188, 255),
+    0 0 30px rgba(88, 103, 188, 255);
+  background-color: rgba(88, 103, 188, 255);
+}
+
+.project2-image:hover {
+  box-shadow: 0 0 10px rgba(249, 136, 36, 255), 0 0 20px rgba(249, 136, 36, 255),
+    0 0 30px rgba(249, 136, 36, 255);
+  background-color: rgba(249, 136, 36, 255);
+}
+
+.project3-image:hover {
+  box-shadow: 0 0 10px rgba(253, 117, 157, 255),
+    0 0 20px rgba(253, 117, 157, 255), 0 0 30px rgba(253, 117, 157, 255);
+  background-color: rgba(253, 117, 157, 255);
+}
+
+.project4-image:hover {
+  box-shadow: 0 0 10px rgba(126, 95, 201, 255), 0 0 20px rgba(126, 95, 201, 255),
+    0 0 30px rgba(126, 95, 201, 255);
+  background-color: rgba(126, 95, 201, 255);
+}
+
+.project5-image:hover {
+  box-shadow: 0 0 10px rgba(175, 226, 230, 255),
+    0 0 20px rgba(175, 226, 230, 255), 0 0 30px rgba(175, 226, 230, 255);
+  background-color: rgba(175, 226, 230, 255);
+}
+
+.project h4 {
+  flex: 1.5; /* Adjust this value to control the space the title and description take up */
+  text-align: justify;
+  margin: 0 10px 0 0;
+  padding: 0px;
+}
+
+.project p {
+  flex: 3;
+  text-align: justify;
+  margin: 0 20px 0 0;
+  padding: 0px;
+}
+
+#skills img {
+  height: 60px;
+  width: 60px;
+}
+
+#skills li {
+  list-style: none;
+}
+
+.skills-container ul {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  padding-left: 0px;
+}
+
+.work-history {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+
+.work-history th,
+.work-history td {
+  padding: 10px;
+  text-align: left;
+  border-bottom: 1px solid #ddd; /* adjust as needed */
+  padding-left: 30px;
+}
+
+/* Add this new class for the glow effect */
+.glow-on-hover {
+  transition: box-shadow 0.3s ease-in-out, background-color 0.3s ease-in-out; /* smooth transition */
+}
+
+/* Specify the glowing effect on hover */
+.glow-on-hover:hover {
+  box-shadow: 0 0 10px rgba(92, 228, 147, 255), 0 0 20px rgba(92, 228, 147, 255),
+    0 0 30px rgba(92, 228, 147, 255);
+  background-color: rgba(
+    92,
+    228,
+    147,
+    255
+  ); /* Optional: change background color on hover */
+}
+
+#contact-list {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+#twitch-logo:hover {
+  transition: box-shadow 0.3s ease-in-out, background-color 0.3s ease-in-out; /* smooth transition */
+  box-shadow: 0 0 10px rgba(145, 70, 255, 255), 0 0 20px rgba(145, 70, 255, 255),
+    0 0 30px rgba(145, 70, 255, 255);
+  background-color: rgba(
+    145,
+    70,
+    255,
+    255
+  ); /* Optional: change background color on hover */
+}
+
+#discord-logo:hover {
+  transition: box-shadow 0.3s ease-in-out, background-color 0.3s ease-in-out; /* smooth transition */
+  box-shadow: 0 0 10px rgba(114, 137, 218, 255),
+    0 0 20px rgba(114, 137, 218, 255), 0 0 30px rgba(114, 137, 218, 255);
+  background-color: rgba(
+    114,
+    137,
+    218,
+    255
+  ); /* Optional: change background color on hover */
+}
+
+#linkedin-logo:hover {
+  transition: box-shadow 0.3s ease-in-out, background-color 0.3s ease-in-out; /* smooth transition */
+  box-shadow: 0 0 10px rgba(0, 119, 181, 255), 0 0 20px rgba(0, 119, 181, 255),
+    0 0 30px rgba(0, 119, 181, 255);
+  background-color: rgba(
+    0,
+    119,
+    181,
+    255
+  ); /* Optional: change background color on hover */
+}
+
+@media (max-width: 900px) {
+  main {
+    perspective: none;
+  }
+
+  #wrapper,
+  main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .book {
+    max-width: 85vw;
+    margin-right: 20px;
+  }
+  .book > div {
+    height: 80vh;
+    width: calc(65vh / var(--book-ratio));
+  }
+  .book-cover::before {
+    content: "";
+    position: absolute;
+    width: 10px;
+    right: 10px;
+    top: 0;
+    bottom: 0;
+    background-color: #2f2061;
+  }
+
+  .book-cover h1 {
+    font-size: 40px;
+  }
+
+  .book-cover h2 {
+    font-size: 30px;
+  }
+
+  h3 {
+    text-align: center;
+  }
+
+  #skills img {
+    height: 40px;
+    width: 40px;
+  }
+
+  .project {
+    flex-direction: column;
+    justify-content: center;
+    text-wrap: wrap;
+    text-align: center;
+    gap: 0px;
+  }
+
+  .project a {
+    margin: 0 auto;
+    padding: 5px;
+  }
+
+  .project img {
+    margin-bottom: 0px;
+  }
+
+  .project h4 {
+    margin-top: 0px;
+  }
+
+  .project p,
+  .project h4 {
+    text-align: center;
+    margin: 0 auto;
+  }
+
+  .project p {
+    margin-bottom: 10px;
+  }
+
+  .work-history th,
+  .work-history td {
+    padding: 5px; /* Adjust as needed for better spacing */
+    text-align: center;
+    border-bottom: none;
+  }
+
+  .work-history,
+  .work-history th,
+  .work-history td {
+    display: block;
+    width: 100%;
+  }
+
+  .work-history th {
+    display: none; /* hide headers */
+  }
+
+  .work-history td {
+    padding-left: 50%; /* space for labels */
+    padding: 0px;
+    margin-bottom: 5px;
+  }
+
+  .work-history td::before {
+    content: attr(data-label);
+    position: absolute;
+    left: 0;
+    width: 50%;
+    padding-left: 15px; /* space between label and border */
+    font-weight: bold;
+    white-space: nowrap;
+  }
+
+  .job-title {
+    font-weight: bolder;
+    font-size: 20px;
+    margin-top: 15px;
+  }
+
+  .company {
+    font-style: italic;
+    font-size: 18px;
+  }
+
+  .date {
+    font-size: 14px;
+    padding-bottom: 5px;
+  }
+
+  .glow-on-hover .description {
+    max-width: 90%;
+    margin: auto auto 15px auto;
+  }
+
+  #contact-list {
+    flex-direction: column;
+		justify-content: center;
+		align-items: center;
+  }
+
+	#contact-list a {
+		margin: 0px;
+		padding: 3px;
+	}
+}
